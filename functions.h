@@ -1,7 +1,7 @@
 #pragma once
 
 double getPrinciple();
-double getInterestRate();
+int getInterestRate();
 bool getLoanType();
 int getTermLength();
-double getMonthlyPayment(double principle, double interestRate, bool loanType, int termLength);
+double getMonthlyPayment(double principle, int interestRate, bool loanType, int termLength);
