@@ -12,6 +12,8 @@ int main()
 
 	std::string loanTypeOut{ (loanType) ? "amortizing" : "balloon" };
 
+	std::cout << '\n';	// Making room for the Monthly Payment output
+
 	if (loanTypeOut == "amortizing")
 	{
 		std::cout << "Monthly payment for an " << loanTypeOut << " loan is $" << std::fixed << std::setprecision(2) << monthlyPayment << '\n';
@@ -21,6 +23,11 @@ int main()
 		std::cout << "Monthly payment for a " << loanTypeOut << " loan is $" << std::fixed << std::setprecision(2) << monthlyPayment << '\n';
 	}
 
+	std::cout << '\n';	// Making room for the amortization table
+
+	outputAmortizationTable(principle, interestRate, termLength, loanType, monthlyPayment);
+
 	return 0;
 	
+
 }

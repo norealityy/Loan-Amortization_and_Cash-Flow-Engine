@@ -25,7 +25,7 @@ int getInterestRate()
 	double interestRate{};
 	while (true) 
 	{
-		std::cout << "Enter interest rate: ";
+		std::cout << "Enter interest rate without decimal points (e.g enter 75 instead of 7.5%): ";
 		if (std::cin >> interestRate)	// Verifying Input so user doesnt accidently enter in a string
 		{
 			return interestRate;	// Returning the raw interest rate percentage without a decimal for percise calculations in the dedicated function in functions.cpp
@@ -61,7 +61,7 @@ bool getLoanType()
 
 int getTermLength() 
 {
-	double years{};
+	int years{};
 	
 	while (true) 
 	{
@@ -84,7 +84,7 @@ double getMonthlyPayment(double principle, int interestRate, bool loanType, int 
 {
 
 	int P = principle;
-	double r = interestRate / 12000.0; // Dividing by 100 to get the yearly percentage rate then dividing again by 12 to get the monthly rate
+	double r = interestRate / 12000.0;	// Dividing by 100 to get the yearly percentage rate then dividing again by 12 to get the monthly rate
 	int n = termLength * 12;
 
 	if (loanType == true) 
@@ -97,4 +97,40 @@ double getMonthlyPayment(double principle, int interestRate, bool loanType, int 
 		double M = (P * (r));
 		return M;
 	}
+}
+
+void outputAmortizationTable(double principle, int interestRate, int termLength, bool loanType, double monthlyPayment)
+{
+	double balance = principle;
+	double monthlyRate = interestRate / 12000.0;	// Dividing by 100 to get the yearly percentage rate then dividing again by 12 to get the monthly rate
+	int totalPayments = termLength * 12;	// Getting the amount of payments total in the amortization table
+	
+	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::left << std::setw(10) << "Month" << std::setw(15) << "Payment" << std::setw(15) << "Principle" << std::setw(15) << "Interest" << std::setw(15) << "Balance" << '\n';
+	std::cout << std::string(70, '-') << '\n';
+
+	for (int i = 1; i < (totalPayments + 1); i++)
+	{
+		double interest = balance * monthlyRate;
+		double principlePaid = monthlyPayment - interest;
+
+		if (i == totalPayments)
+		{
+			principlePaid = balance;
+			monthlyPayment = principlePaid + interest;
+			balance = 0.0;
+		}
+		else
+		{
+			balance -= principlePaid;
+		}
+
+		std::cout << std::left << std::setw(10) << i
+			<< "$" << std::setw(13) << monthlyPayment
+			<< "$" << std::setw(13) << principlePaid
+			<< "$" << std::setw(13) << interest
+			<< "$" << std::setw(13) << balance << '\n';
+	}
+
+
 }
