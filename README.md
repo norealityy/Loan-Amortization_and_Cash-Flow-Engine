@@ -20,7 +20,7 @@ A robust command-line financial calculation tool written in **C++** designed to 
 ### Option 2: Using the Command Line (g++)
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/norealityyy/Loan-Amortization_and_Cash-Flow-Engine](https://github.com/norealityyy/Loan-Amortization_and_Cash-Flow-Engine)
+   git clone https://github.com/norealityyy/Loan-Amortization_and_Cash-Flow-Engine
 2. Navigate to the project directory:
    ```bash
    cd Loan-Amortization_and_Cash-Flow-Engine
@@ -28,9 +28,10 @@ A robust command-line financial calculation tool written in **C++** designed to 
    ```bash
    g++ main.cpp functions.cpp -o loan_calculator
 4. Run the executable
-   - Windows: loan_calculator.exe
-   - Mac/Linux: ./loan_calculator
-Sample Output
+   - **Windows:** loan_calculator.exe
+   - **Mac/Linux:** ./loan_calculator
+
+### Sample Output
 
 ```
 Enter principal amount: 250000
