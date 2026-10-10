@@ -27,10 +27,9 @@ A robust command-line financial calculation tool written in **C++** designed to 
 3. Compile the source files:
    ```bash
    g++ main.cpp functions.cpp -o loan_calculator
-4. Run the executable
-   - **Windows:** loan_calculator.exe
-   - **Mac/Linux:** ./loan_calculator
-
+4. Run the executable:
+   * **Windows:** `loan_calculator.exe`
+   * **Mac/Linux:** `./loan_calculator`
 ### Sample Output
 
 ```
